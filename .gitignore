@@ -1,0 +1,32 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.cache
+*.vshost.exe
+*.vshost.exe.*
+
+# Rider / ReSharper
+.idea/
+_ReSharper*/
+
+# NuGet
+packages/
+*.nupkg
+
+# macOS
+.DS_Store
+__MACOSX/
+._*

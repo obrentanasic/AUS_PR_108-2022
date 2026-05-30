@@ -1,0 +1,6 @@
+STA 88
+TCP 28678
+
+DO_REG  7  1800  0  0     1     0  DO  @DigOut  3
+IN_REG  1   800  0  0  4095     0  AI  @AnaIn   1
+HR_INT  1  2800  0  0  4095     0  AO  @AnaOut  1
