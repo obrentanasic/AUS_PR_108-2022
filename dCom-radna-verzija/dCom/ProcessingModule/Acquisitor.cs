@@ -56,7 +56,39 @@ namespace ProcessingModule
         /// </summary>
 		private void Acquisition_DoWork()
 		{
-            //TO DO: IMPLEMENT
+			while (true)
+			{
+				try
+				{
+					// The timer thread signals this trigger once every second.
+					this.acquisitionTrigger.WaitOne();
+
+					byte unitAddress = this.configuration.UnitAddress;
+					foreach (IConfigItem item in this.configuration.GetConfigurationItems())
+					{
+						if (item.AcquisitionInterval <= 0)
+						{
+							continue;
+						}
+
+						item.SecondsPassedSinceLastPoll++;
+						if (item.SecondsPassedSinceLastPoll >= item.AcquisitionInterval)
+						{
+							item.SecondsPassedSinceLastPoll = 0;
+							this.processingManager.ExecuteReadCommand(
+								item,
+								this.configuration.GetTransactionId(),
+								unitAddress,
+								item.StartAddress,
+								item.NumberOfRegisters);
+						}
+					}
+				}
+				catch (Exception ex)
+				{
+					this.stateUpdater.LogMessage($"Acquisition error: {ex.Message}");
+				}
+			}
         }
 
         #endregion Private Methods
