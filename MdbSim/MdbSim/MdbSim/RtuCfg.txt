@@ -1,6 +1,8 @@
 STA 88
 TCP 28678
 
-DO_REG  10  1800  0  0     1     0  DO  @DigOut
-IN_REG   4   800  0  0  4095  2000  AI  @AnaIn
-HR_INT   2  2800  0  0  4095  1200  AO  @AnaOut
+IN_REG   1   800  0  0  4095  2000  AI  @L
+DO_REG   1  1800  0  0     1     0  DO  @STOP
+DO_REG   1  1802  0  0     1     0  DO  @V1
+DO_REG   2  1805  0  0     1     0  DO  @P
+HR_INT   2  2800  0  0  4095  1200  AO  @N1
