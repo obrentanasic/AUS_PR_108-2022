@@ -5,4 +5,4 @@ IN_REG   1   800  0  0  4095  2000  AI  @L      1
 DO_REG   1  1800  0  0     1     0  DO  @STOP   3
 DO_REG   1  1802  0  0     1     0  DO  @V1     3
 DO_REG   2  1805  0  0     1     0  DO  @P      3
-HR_INT   2  2800  0  0  4095  1200  AO  @N1     1
+HR_INT   1  2800  0  0  4095  1200  AO  @N1     1
